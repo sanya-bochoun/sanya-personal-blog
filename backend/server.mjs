@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
-import xss from 'xss-clean';
+// import xss from 'xss-clean';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -45,13 +45,13 @@ app.use(rateLimit({
 }));
 
 // 3. Data Sanitization - Prevent XSS attacks
-app.use(xss());
+// app.use(xss());
 
 // CORS configuration
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production'
     ? ['https://my-personal-blog-five.vercel.app']
-    : ['http://localhost:5173'],
+    : ['http://localhost:5175'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -118,8 +118,10 @@ const server = http.createServer(app);
 const io = new SocketIOServer(server, {
   cors: {
     origin: [
+      'http://localhost:5175',
       'http://localhost:5173',
       'http://localhost:3000',
+      'http://127.0.0.1:5175',
       'http://127.0.0.1:5173',
       'http://127.0.0.1:3000',
       process.env.FRONTEND_URL
