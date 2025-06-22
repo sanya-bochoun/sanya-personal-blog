@@ -6,12 +6,20 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon -r dotenv/config src/app.js",
+    "configure:env": "node utils/configureEnv.mjs",
+    "setup:migration": "node -r dotenv/config utils/setupMigration.mjs",
+    "test:supabase": "node -r dotenv/config utils/testSupabaseConnection.mjs",
+    "migrate:supabase": "node -r dotenv/config utils/migrateToSupabase.mjs",
+    "verify:migration": "node -r dotenv/config -e \"import('./utils/migrateToSupabase.mjs').then(m => m.verifyMigration())\"",
+    "clear:supabase": "node -r dotenv/config -e \"import('./utils/migrateToSupabase.mjs').then(m => m.clearSupabaseData())\"",
+    "test:pg": "node -r dotenv/config utils/testPgQuery.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",

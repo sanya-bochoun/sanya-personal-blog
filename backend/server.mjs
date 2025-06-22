@@ -49,9 +49,16 @@ app.use(rateLimit({
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production'
-    ? ['https://my-personal-blog-five.vercel.app']
-    : ['http://localhost:5175'],
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:5174',
+    'http://127.0.0.1:3000',
+    'https://my-personal-blog-ver2.vercel.app/',
+    process.env.FRONTEND_URL
+  ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -119,9 +126,11 @@ const io = new SocketIOServer(server, {
   cors: {
     origin: [
       'http://localhost:5175',
+      'http://localhost:5174',
       'http://localhost:5173',
       'http://localhost:3000',
       'http://127.0.0.1:5175',
+      'http://127.0.0.1:5174',
       'http://127.0.0.1:5173',
       'http://127.0.0.1:3000',
       process.env.FRONTEND_URL
@@ -141,6 +150,8 @@ io.on('connection', (socket) => {
 // เริ่มต้น server
 server.listen(PORT, () => {
   console.log(`✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n🌈 🚀 Server is running successfully! 🚀 🌈\n🔹 Environment: ${process.env.NODE_ENV}\n🔹 Port: ${PORT}\n🔹 Status: Online and ready!\n🔹 URLs: http://localhost:${PORT}\n🔹 API: http://localhost:${PORT}/api\n🔹 Health Check: http://localhost:${PORT}/api/health\n🔹 Time: ${new Date().toLocaleString()}\n🌟 Happy coding! 💻 ✨\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+
+  console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
 });
 
 export { io }; 
