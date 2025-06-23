@@ -56,7 +56,7 @@ const corsOptions = {
     'http://127.0.0.1:5173',
     'http://127.0.0.1:5174',
     'http://127.0.0.1:3000',
-    'https://my-personal-blog-ver2.vercel.app/',
+    'https://my-personal-blog-ver2.vercel.app',
     process.env.FRONTEND_URL
   ].filter(Boolean),
   credentials: true,
