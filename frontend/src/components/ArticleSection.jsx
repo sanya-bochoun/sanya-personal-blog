@@ -9,7 +9,7 @@ import { formatDate } from '../utils/date';
 import axios from 'axios';
 
 const LOADING_DELAY = 1000; // 1 second delay
-const BASE_URL = 'https://my-personal-blog-2025.onrender.com/api';
+const BASE_URL = 'https://my-personal-blog-2025.onrender.com';
 
 const ArticleSection = () => {
   const navigate = useNavigate();
