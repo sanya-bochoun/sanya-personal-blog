@@ -22,7 +22,7 @@ function ArticleManagement() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
     
   // Fetch articles

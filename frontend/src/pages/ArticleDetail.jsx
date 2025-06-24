@@ -20,7 +20,7 @@ const ArticleDetail = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [comments, setComments] = useState([]);
   const [commentLoading, setCommentLoading] = useState(false);
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
 
   // ดึงคอมเมนต์
   const fetchComments = async (postId) => {

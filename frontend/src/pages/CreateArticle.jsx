@@ -11,7 +11,7 @@ function CreateArticle() {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
   const [categories, setCategories] = useState([]);
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
   const [formData, setFormData] = useState({
     title: '',
     introduction: '',

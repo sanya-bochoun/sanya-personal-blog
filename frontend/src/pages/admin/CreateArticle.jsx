@@ -7,7 +7,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { FiLoader } from 'react-icons/fi';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 function AdminCreateArticle() {
   const navigate = useNavigate();
@@ -122,7 +122,7 @@ function AdminCreateArticle() {
         form.append('thumbnail_image', formData.thumbnailImage);
       }
 
-      const response = await axios.post('http://localhost:5000/api/admin/articles', form, {
+      const response = await axios.post(`${API_URL}/api/admin/articles`, form, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -172,7 +172,7 @@ function AdminCreateArticle() {
         form.append('thumbnail_image', formData.thumbnailImage);
       }
 
-      const response = await axios.post('http://localhost:5000/api/admin/articles', form, {
+      const response = await axios.post(`${API_URL}/api/admin/articles`, form, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

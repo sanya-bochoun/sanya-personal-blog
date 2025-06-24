@@ -9,7 +9,7 @@ import { formatDate } from '../utils/date';
 import axios from 'axios';
 
 const LOADING_DELAY = 1000; // 1 second delay
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ArticleSection = () => {
   const navigate = useNavigate();
