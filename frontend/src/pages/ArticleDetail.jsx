@@ -46,7 +46,7 @@ const ArticleDetail = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`${API_URL}/articles/detail/${slug}`);
+        const response = await axios.get(`${API_URL}/posts/${slug}`);
         if (response.data.status === 'success') {
           console.log('Article Data:', response.data.data);
           setArticle(response.data.data);

@@ -82,7 +82,7 @@ const ArticleSection = () => {
 
     setIsSearching(true);
     try {
-      const response = await axios.get(`${BASE_URL}/api/posts`, {
+      const response = await axios.get(`${BASE_URL}/posts`, {
         params: {
           search: query,
           limit: 5 // จำกัดผลลัพธ์ให้แสดงแค่ 5 รายการ
