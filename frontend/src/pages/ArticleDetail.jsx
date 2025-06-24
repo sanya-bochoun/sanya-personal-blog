@@ -26,7 +26,7 @@ const ArticleDetail = () => {
   const fetchComments = async (postId) => {
     try {
       setCommentLoading(true);
-      const response = await axios.get(`${API_URL}/api/comments/post/${postId}`);
+      const response = await axios.get(`${API_URL}/comments/post/${postId}`);
       console.log('API comments:', response.data);
       // รองรับทั้งกรณีที่ data อยู่ใน data.data หรือ data เป็น array เลย
       if (Array.isArray(response.data.data)) {
@@ -46,7 +46,7 @@ const ArticleDetail = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/articles/detail/${slug}`);
+        const response = await axios.get(`${API_URL}/articles/detail/${slug}`);
         if (response.data.status === 'success') {
           console.log('Article Data:', response.data.data);
           setArticle(response.data.data);

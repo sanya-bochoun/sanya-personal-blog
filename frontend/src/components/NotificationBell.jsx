@@ -40,7 +40,7 @@ const NotificationBell = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('accessToken');
-      const response = await axios.get(`${API_URL}/api/notifications`, {
+      const response = await axios.get(`${API_URL}/notifications`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

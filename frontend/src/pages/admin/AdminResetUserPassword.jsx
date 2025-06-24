@@ -21,7 +21,7 @@ function AdminResetUserPassword() {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem('accessToken');
-        const response = await axios.get(`${API_URL}/api/admin/users/${userId}`, {
+        const response = await axios.get(`${API_URL}/admin/users/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

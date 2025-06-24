@@ -31,7 +31,7 @@ function EditArticle() {
     const fetchArticle = async () => {
       try {
         const token = localStorage.getItem('accessToken');
-        const response = await api.get(`${API_URL}/api/articles/${id}`, {
+        const response = await api.get(`${API_URL}/articles/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -63,7 +63,7 @@ function EditArticle() {
 
     const fetchCategories = async () => {
       try {
-        const response = await api.get(`${API_URL}/api/categories`);
+        const response = await api.get(`${API_URL}/categories`);
         if (response.data.status === 'success') {
           setCategories(response.data.data);
         }
@@ -117,7 +117,7 @@ function EditArticle() {
         form.append('thumbnailImage', formData.thumbnailFile);
 
         response = await api.put(
-          `${API_URL}/api/articles/${id}`,
+          `${API_URL}/articles/${id}`,
           form,
           {
             headers: {
@@ -136,7 +136,7 @@ function EditArticle() {
           status: 'draft'
         };
         response = await api.put(
-          `${API_URL}/api/articles/${id}`,
+          `${API_URL}/articles/${id}`,
           submitData,
           {
             headers: {
@@ -179,7 +179,7 @@ function EditArticle() {
         form.append('thumbnailImage', formData.thumbnailFile);
 
         response = await api.put(
-          `${API_URL}/api/articles/${id}`,
+          `${API_URL}/articles/${id}`,
           form,
           {
             headers: {
@@ -197,7 +197,7 @@ function EditArticle() {
           status: 'published'
         };
         response = await api.put(
-          `${API_URL}/api/articles/${id}`,
+          `${API_URL}/articles/${id}`,
           submitData,
           {
             headers: {

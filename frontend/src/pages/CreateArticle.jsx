@@ -28,7 +28,7 @@ function CreateArticle() {
     const fetchCategories = async () => {
       try {
         const token = localStorage.getItem('accessToken');
-        const response = await api.get(`${API_URL}/api/categories`, {
+        const response = await api.get(`${API_URL}/categories`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

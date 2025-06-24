@@ -16,7 +16,7 @@ function Notification() {
       setError(null);
       const token = localStorage.getItem('accessToken');
       
-      const response = await api.get('/api/notifications', {
+      const response = await api.get('/notifications', {
         headers: {
           Authorization: `Bearer ${token}`
         }

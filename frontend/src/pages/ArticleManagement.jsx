@@ -32,7 +32,7 @@ function ArticleManagement() {
       const token = localStorage.getItem('accessToken');
       // Add 1 second delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      const response = await api.get(`${API_URL}/api/articles${viewAllArticles ? '?viewAll=true' : ''}`, {
+      const response = await api.get(`${API_URL}/articles${viewAllArticles ? '?viewAll=true' : ''}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -58,7 +58,7 @@ function ArticleManagement() {
       const token = localStorage.getItem('accessToken');
       if (e.target.value.trim()) {
         const response = await api.get(
-          `${API_URL}/api/articles/search?q=${e.target.value}${viewAllArticles ? '&viewAll=true' : ''}`,
+          `${API_URL}/articles/search?q=${e.target.value}${viewAllArticles ? '&viewAll=true' : ''}`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -89,7 +89,7 @@ function ArticleManagement() {
   // Fetch categories
   const fetchCategories = async () => {
     try {
-      const response = await api.get(`${API_URL}/api/categories`);
+      const response = await api.get(`${API_URL}/categories`);
       if (response.data.status === 'success') {
         setCategories(response.data.data);
       }
@@ -142,7 +142,7 @@ function ArticleManagement() {
   const handleConfirmDelete = async () => {
     try {
       const token = localStorage.getItem('accessToken');
-      const response = await api.delete(`${API_URL}/api/articles/${selectedArticleId}`, {
+      const response = await api.delete(`${API_URL}/articles/${selectedArticleId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

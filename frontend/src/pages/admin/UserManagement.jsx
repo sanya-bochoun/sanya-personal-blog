@@ -168,7 +168,7 @@ function UserManagement() {
       // Add 1 second delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const response = await api.get('/api/admin/users', {
+      const response = await api.get('/admin/users', {
         params: {
           page,
           search,

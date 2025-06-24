@@ -36,7 +36,7 @@ function AdminCreateArticle() {
           return;
         }
 
-        const response = await axios.get(`${API_URL}/api/categories`, {
+        const response = await axios.get(`${API_URL}/categories`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -80,7 +80,7 @@ function ResetPassword() {
     
     try {
       const token = localStorage.getItem('accessToken');
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/reset-password`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/users/reset-password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

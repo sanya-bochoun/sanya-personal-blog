@@ -74,7 +74,7 @@ function Profile() {
           throw new Error('ไม่พบ Token กรุณาเข้าสู่ระบบใหม่');
         }
 
-        const response = await fetch(`${API_URL}/api/users/avatar`, {
+        const response = await fetch(`${API_URL}/users/avatar`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -148,7 +148,7 @@ function Profile() {
       }
 
       // ทำการส่ง request
-      let response = await fetch(`${API_URL}/api/users/profile`, {
+      let response = await fetch(`${API_URL}/users/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ function Profile() {
         
         // ดึง token ใหม่และลองส่ง request อีกครั้ง
         token = localStorage.getItem('accessToken');
-        response = await fetch(`${API_URL}/api/users/profile`, {
+        response = await fetch(`${API_URL}/users/profile`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

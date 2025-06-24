@@ -24,7 +24,7 @@ function CategoryManagement() {
       // Add 1 second delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       console.log('Fetching categories with token:', token);
-      const response = await axios.get(`${API_URL}/api/admin/categories`, {
+      const response = await axios.get(`${API_URL}/admin/categories`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -50,7 +50,7 @@ function CategoryManagement() {
     try {
       const token = localStorage.getItem('accessToken');
       if (e.target.value.trim()) {
-        const response = await axios.get(`${API_URL}/api/admin/categories/search?q=${e.target.value}`, {
+        const response = await axios.get(`${API_URL}/admin/categories/search?q=${e.target.value}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -75,7 +75,7 @@ function CategoryManagement() {
   const handleConfirmDelete = async () => {
     try {
       const token = localStorage.getItem('accessToken');
-      await axios.delete(`${API_URL}/api/admin/categories/${selectedCategoryId}`, {
+      await axios.delete(`${API_URL}/admin/categories/${selectedCategoryId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

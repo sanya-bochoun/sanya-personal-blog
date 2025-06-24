@@ -33,7 +33,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('refreshToken');
       if (refreshToken) {
         try {
-          const res = await axios.post(`${BASE_URL}/api/auth/refresh-token`, {
+          const res = await axios.post(`${BASE_URL}/auth/refresh-token`, {
             refreshToken,
           });
           const newAccessToken = res.data.data.accessToken;
@@ -62,7 +62,7 @@ export const fetchPosts = async ({ page = 1, limit = 6, category = '', keyword =
       ...(keyword && { keyword })
     };
 
-    const response = await api.get('/api/posts', { params });
+    const response = await api.get('/posts', { params });
     return response.data;
   } catch (error) {
     console.error('Error fetching posts:', error);
